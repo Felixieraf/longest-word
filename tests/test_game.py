@@ -11,3 +11,7 @@ class TestGame(unittest.TestCase):
         self.assertEqual(len(grid), 9)
         for letter in grid:
             self.assertIn(letter, string.ascii_uppercase)
+    def test_unknown_word_is_invalid(self):
+          new_game = Game()
+          new_game.grid = list('KWIENFUQW') # Forcer la grille à un scénario de test :
+          self.assertIs(new_game.is_valid('FEUN'), False)
